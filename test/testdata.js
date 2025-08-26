@@ -134939,4 +134939,4 @@ var testdata = {
     ]
 }
 
-if(typeof module!=='undefined' && module.exports) module.exports = testdata
+export {testdata}

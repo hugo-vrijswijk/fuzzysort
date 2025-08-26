@@ -13,17 +13,10 @@ HOW TO WRITE TESTS:
   assert(true, 'my err msg') // must be truthy
 */
 
-// require / setup
-const isNode = typeof window === 'undefined'
-if(isNode) {
-  var testdata = require('./testdata.js')
-  var arg = process.argv[2]
-  if(arg == 'min') {
-    var fuzzysort = require('../fuzzysort.min.js')
-  } else {
-    var fuzzysort = require('../fuzzysort.js')
-  }
-}
+import {testdata} from './testdata.js';
+import fuzzysort from '../dist/fuzzysort.js';
+
+const isNode = typeof window === 'undefined';
 
 // config
 const config = {
@@ -33,7 +26,7 @@ const config = {
 }
 
 // load testdata into testdata_prepared, testdata_obj
-let testdata_prepared = {}; let testdata_obj = {}
+export let testdata_prepared = {}; let testdata_obj = {}
 {
   for(const key of Object.keys(testdata)) {
     testdata_prepared[key] = new Array(testdata[key].length)

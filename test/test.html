@@ -9,9 +9,6 @@
 </style>
 
 
-<script src="../fuzzysort.min.js"></script>
-<script src="./testdata.js"></script>
-<script src="./test.js"></script>
 <script src="https://unpkg.com/vue@3.2.35/dist/vue.global.prod.js"></script>
 
 
@@ -45,7 +42,11 @@
 
 
 
-<script>;(function() {
+<script type="module">
+  import fuzzysort from '../dist/fuzzysort.js';
+  import {testdata} from './testdata.js';
+  import {testdata_prepared} from './test.js';
+;(function() {
   var vue = window.vue = Vue.createApp({
 
     data() {
