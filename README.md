@@ -14,6 +14,9 @@
   <b>Good:</b> clean api + sorts results well.
 </p>
 
+# Note
+
+Forked from https://github.com/farzher/fuzzysort. This fork includes a CJS and ESM build, built with [tsdown](https://tsdown.dev/)
 
 ## [Demo](https://rawgit.com/farzher/fuzzysort/master/test/test.html)
 
@@ -34,13 +37,13 @@ https://rawgit.com/farzher/fuzzysort/master/test/test.html
 ## Installation Node / Bun / Deno
 
 ```sh
-npm i fuzzysort
+npm i fuzziersort
 ```
 ```js
-import fuzzysort from 'fuzzysort'
+import fuzziersort from 'fuzziersort'
 ```
 ```js
-const fuzzysort = require('fuzzysort')
+const fuzziersort = require('fuzziersort')
 ```
 
 
@@ -48,24 +51,24 @@ const fuzzysort = require('fuzzysort')
 ## Installation Browser
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/fuzzysort@3.1.0/fuzzysort.min.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/fuzziersort"></script>
 ```
 
 
 ## Usage
 
-### `fuzzysort.go(search, targets, options=null)`
+### `fuzziersort.go(search, targets, options=null)`
 
 ```js
 const mystuff = [{file: 'Apple.cpp'}, {file: 'Banana.cpp'}]
-const results = fuzzysort.go('a', mystuff, {key: 'file'})
+const results = fuzziersort.go('a', mystuff, {key: 'file'})
 // [{score: 0.81, obj: {file: 'Apple.cpp'}}, {score: 0.59, obj: {file: 'Banana.cpp'}}]
 ```
 
 ### Options
 
 ```js
-fuzzysort.go(search, targets, {
+fuzziersort.go(search, targets, {
   threshold: 0,    // Don't return matches worse than this
   limit: 0,        // Don't return more results than this
   all: false,      // If true, returns all results for an empty search
@@ -82,7 +85,7 @@ fuzzysort.go(search, targets, {
 ## What's a `result`
 
 ```js
-const result = fuzzysort.single('query', 'some string that contains my query.')
+const result = fuzziersort.single('query', 'some string that contains my query.')
 result.score       // .80 (1 is a perfect match. 0.5 is a good match. 0 is no match.)
 result.target      // 'some string that contains my query.'
 result.obj         // reference to your original obj when using options.key
@@ -110,7 +113,7 @@ let objects = [{
   meta: {desc: 'Raises Special Attack when HP is low.'},
 }]
 
-let results = fuzzysort.go('attack berry', objects, {
+let results = fuzziersort.go('attack berry', objects, {
   keys: ['title', 'meta.desc', obj => obj.tags?.join()],
   scoreFn: r => r.score * r.obj.bookmarked ? 2 : 1, // if the item is bookmarked, boost its score
 })
@@ -134,7 +137,7 @@ let targets = [{file: 'Monitor.cpp'}, {file: 'MeshRenderer.cpp'}]
 targets = targets.filter(t => t.file.length < 1000)
 
 // if your targets don't change often, provide prepared targets instead of raw strings!
-targets.forEach(t => t.filePrepared = fuzzysort.prepare(t.file))
+targets.forEach(t => t.filePrepared = fuzziersort.prepare(t.file))
 
 // don't use options.key if you don't need a reference to your original obj
 targets = targets.map(t => t.filePrepared)
@@ -143,9 +146,9 @@ const options = {
   limit: 100,    // don't return more results than you need!
   threshold: .5, // don't return bad results
 }
-fuzzysort.go('gotta', targets, options)
-fuzzysort.go('go',    targets, options)
-fuzzysort.go('fast',  targets, options)
+fuzziersort.go('gotta', targets, options)
+fuzziersort.go('go',    targets, options)
+fuzziersort.go('fast',  targets, options)
 ```
 
 

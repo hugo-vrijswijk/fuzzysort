@@ -1,6 +1,6 @@
 {
-  "name": "fuzzysort",
-  "version": "3.1.0",
+  "name": "fuzziersort",
+  "version": "4.0.0",
   "author": "farzher",
   "license": "MIT",
   "description": "Fast SublimeText-like fuzzy search for JavaScript",
@@ -16,15 +16,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/farzher/fuzzysort.git"
+    "url": "git+https://github.com/hugo-vrijswijk/fuzzysort.git"
   },
   "type": "module",
-  "main": "./dist/fuzzysort.cjs",
-  "module": "./dist/fuzzysort.js",
+  "main": "./dist/fuzziersort.cjs",
+  "module": "./dist/fuzziersort.js",
   "exports": {
     ".": {
-      "import": "./dist/fuzzysort.js",
-      "require": "./dist/fuzzysort.cjs"
+      "import": "./dist/fuzziersort.js",
+      "require": "./dist/fuzziersort.cjs"
     },
     "./package.json": "./package.json"
   },
@@ -32,13 +32,13 @@
     "test": "node test/test.js",
     "test-min": "node test/test.js min",
     "build": "tsdown",
-    "postbuild": "cp src/fuzzysort.d.ts dist/fuzzysort.d.ts && cp src/fuzzysort.d.ts dist/fuzzysort.d.cts",
+    "postbuild": "cp src/fuzziersort.d.ts dist/fuzziersort.d.ts && cp src/fuzziersort.d.ts dist/fuzziersort.d.cts",
     "dev": "npm run build -- --watch",
     "pretest": "npm run build"
   },
   "files": [
     "dist/*",
-    "src/fuzzysort.js"
+    "src/fuzziersort.js"
   ],
   "devDependencies": {
     "tsdown": "^0.14.2"

@@ -78,7 +78,7 @@ export declare function go<T>(search: string, targets: ReadonlyArray<T>, options
 export declare const prepare: (target: string) => Prepared;
 
 /**
-* Free memory caches if you're done using fuzzysort for now
+* Free memory caches if you're done using fuzziersort for now
 */
 export declare const cleanup: () => void;
 
