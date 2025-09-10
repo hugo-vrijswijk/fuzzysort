@@ -168,6 +168,17 @@ fuzziersort.go('fast',  targets, options)
 
 ### Changelog
 
+#### v4.0.1
+
+- Run publish in CI/CD workflows
+
+#### v4.0.0
+
+- Added ESM build
+- Changed package name to `fuzziersort` (forked from `fuzzysort`)
+- Changed all references from `fuzzysort` to `fuzziersort`
+- Changed demo to use ESM build
+
 #### v3.1.0
 - Automatically handle diacritics / accents / ligatures
 
